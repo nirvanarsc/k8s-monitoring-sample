@@ -1,0 +1,58 @@
+import static org.gradle.api.JavaVersion.VERSION_1_8
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.jruyi.thrift' version '0.4.1'
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'com.google.osdetector' version '1.6.2'
+    id 'com.google.cloud.tools.jib' version '1.8.0'
+}
+
+group 'com.linecorp'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'com.linecorp.armeria:armeria-bom:0.96.0'
+    }
+}
+
+dependencies {
+    implementation 'com.linecorp.armeria:armeria'
+    implementation 'com.linecorp.armeria:armeria-spring-boot-starter'
+    implementation 'com.linecorp.armeria:armeria-spring-boot-actuator-starter'
+    implementation 'com.linecorp.armeria:armeria-tomcat'
+    implementation 'com.linecorp.armeria:armeria-thrift'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.apache.thrift:libthrift:0.13.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'junit:junit:4.12'
+}
+
+tasks.withType(JavaCompile) {
+    sourceCompatibility = VERSION_1_8
+    targetCompatibility = VERSION_1_8
+    options.encoding = 'UTF-8'
+    options.debug = true
+    options.compilerArgs += '-parameters'
+}
+
+compileThrift {
+    recurse true
+    createGenFolder false
+    generator 'java'
+    thriftExecutable "$rootDir/thrift-${osdetector.classifier}"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jib.to.image = 'nirvanarsc/my-app'
