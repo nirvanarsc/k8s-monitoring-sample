@@ -22,7 +22,7 @@ spec:
         prometheus.io/path: /internal/metrics
     spec:
       containers:
-      - image: registry-1.docker.io/nirvanarsc/my-app
+      - image: docker.io/nirvanarsc/my-app
         name: my-app
         resources: {}
 status: {}
