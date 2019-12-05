@@ -53,6 +53,7 @@ compileThrift {
 
 test {
     useJUnitPlatform()
+    exclude '**/LocalIntegrationTest.class'
 }
 
 jib.to.image = 'nirvanarsc/my-app'

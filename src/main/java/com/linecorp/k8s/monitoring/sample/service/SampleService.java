@@ -11,6 +11,6 @@ import com.linecorp.armeria.server.annotation.PathPrefix;
 public class SampleService {
     @Get("/{name}")
     public String hello(@Param String name) {
-        return "Hello armeria " + name;
+        return "Hello Armeria " + name;
     }
 }
