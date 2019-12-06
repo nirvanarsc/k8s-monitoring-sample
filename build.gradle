@@ -1,4 +1,4 @@
-import static org.gradle.api.JavaVersion.VERSION_1_8
+import static org.gradle.api.JavaVersion.VERSION_13
 
 plugins {
     id 'java'
@@ -35,8 +35,8 @@ dependencies {
 }
 
 tasks.withType(JavaCompile) {
-    sourceCompatibility = VERSION_1_8
-    targetCompatibility = VERSION_1_8
+    sourceCompatibility = VERSION_13
+    targetCompatibility = VERSION_13
     options.encoding = 'UTF-8'
     options.debug = true
     options.compilerArgs += '-parameters'

@@ -37,7 +37,7 @@ public class GreetingServiceIntegrationTest {
         final ListenableFuture<GreetingReply> future = helloService
                 .lazyHello(GreetingRequest.newBuilder().setName("Armeria").build());
         final AtomicBoolean completed = new AtomicBoolean();
-        Futures.addCallback(future, new FutureCallback<GreetingReply>() {
+        Futures.addCallback(future, new FutureCallback<>() {
             @Override
             public void onSuccess(GreetingReply result) {
                 assertEquals("Hello, Armeria!", result.getMessage());
