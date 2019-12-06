@@ -24,12 +24,11 @@ dependencyManagement {
 
 dependencies {
     implementation 'com.linecorp.armeria:armeria'
+    implementation 'com.linecorp.armeria:armeria-grpc'
     implementation 'com.linecorp.armeria:armeria-spring-boot-starter'
     implementation 'com.linecorp.armeria:armeria-spring-boot-actuator-starter'
-    implementation 'com.linecorp.armeria:armeria-tomcat'
-    implementation 'com.linecorp.armeria:armeria-grpc'
     implementation 'io.micrometer:micrometer-registry-prometheus'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+
     testImplementation 'org.awaitility:awaitility:4.0.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'junit:junit:4.12'
