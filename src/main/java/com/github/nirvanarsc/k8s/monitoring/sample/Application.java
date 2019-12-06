@@ -1,4 +1,4 @@
-package com.linecorp.k8s.monitoring.sample;
+package com.github.nirvanarsc.k8s.monitoring.sample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

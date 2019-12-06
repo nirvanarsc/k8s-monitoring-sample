@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package grpc.welcome;
+option java_package = "com.github.nirvanarsc.k8s.monitoring.sample.grpc";
+
+service GreetingService {
+    rpc Hello (GreetingRequest) returns (GreetingReply) {}
+    rpc LazyHello (GreetingRequest) returns (GreetingReply) {}
+}
+
+message GreetingRequest {
+    string name = 1;
+}
+
+message GreetingReply {
+    int64 id = 1;
+    string message = 2;
+}

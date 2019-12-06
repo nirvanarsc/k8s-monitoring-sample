@@ -1,4 +1,4 @@
-package com.linecorp.k8s.monitoring.sample.service;
+package com.github.nirvanarsc.k8s.monitoring.sample.service;
 
 import javax.inject.Named;
 
