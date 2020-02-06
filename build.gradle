@@ -18,7 +18,7 @@ repositories {
 
 dependencyManagement {
     imports {
-        mavenBom 'com.linecorp.armeria:armeria-bom:0.96.0'
+        mavenBom 'com.linecorp.armeria:armeria-bom:0.97.0'
     }
 }
 
@@ -31,7 +31,6 @@ dependencies {
 
     testImplementation 'org.awaitility:awaitility:4.0.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'junit:junit:4.12'
 }
 
 tasks.withType(JavaCompile) {
